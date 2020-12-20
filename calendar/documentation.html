@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Library Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+  />
+  <link rel="stylesheet" href="demo.css" />
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <ul class = "nav-ul">
+    <li><a href="./example.html">Example Link</a></li>
+    <li><a href="https://github.com/csc309-fall-2020/js-library-wangs519">GitHub (Now is a private link)</a></li>
+  </ul>
+
+  <div class="container">
+    <h2>Getting Started</h2>
+    <h3>Hi everyone, welcome to my Time-Schedule Library!</h3>
+    <p>
+      The library is used for recording special events on special timestamps, 
+      like a calendar or a notepad, but in a more visually rich and interactive way. 
+      In this library, you will find many kinds of traditional calendars, 
+      like the monthly calendar, slide calendar, agenda, timeline, timetable, to-do list, 
+      time resource organization, world clock planner and so on. 
+      <br>
+      Some APIs are implemented with photo adding. After inputting events, you can also add an image for this event. 
+      Then, when you click the special timestamp on the webpage, whose corresponding photo will show dynamically.
+      <br>
+      The left APIs add a variety of features to the calendar itself. For example, the API <code>.SearchTable()</code> can 
+      not only add events in the timetable, but also can search the event with the date keywords.
+      <br>
+      It is easy to use this library. You just need to import the css file <code>style.css</code> and js file <code>script.js</code> in 
+      the <code>head</code> section of your html. You also need to import the external modules <code>jQuery</code>. 
+      For convenience, you can create an <code>example.js</code> file and include it in you <code>head</head></code> section as well. 
+      <br>
+      In <code>example.html</code> (you can customize its name), you can import the libraries with the code below:
+      <p  class = "txt-border">
+        &lt; link rel="stylesheet" href="style.css" /&gt;
+        <br>
+        &lt; script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;
+        <br>
+        &lt; script defer type="text/javascript" src="script.js"&gt; &lt;/script &gt;
+        <br>
+        &lt; script defer type="text/javascript" src="example.js"&gt; &lt;/script &gt;
+      </p>
+      <p>In <code>example.js</code>, you can directly use the library APIs with the code below. 
+        In the section <code>API List</code>, all APIs will be talked about in detail.</p>
+      <p  class = "txt-border">
+        "use strict"; 
+        <br>const cg = new CalendarGenerator()
+        <br>function examples() {
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.BasicCalendar();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.SlideCalendar();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.SlideGalleryCalendar();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.ImageGrid();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.TodoList();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.TimeLine();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.Timesheet();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.Timetable();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.changeTimeZone();
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;cg.SearchTable();
+          <br>}
+          <br>examples();
+
+      </p>
+      <p></p>
+    </p>
+    <br>
+    
+
+    <h2>API List</h2>
+    <p>The 10 API functions are the most important part of this time-schedule library. The table below will show you their parameters and functionalities. </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="width:5%">#</th>
+          <th scope="col" style="width:10%">API</th>
+          <th scope="col" style="width:75%">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><code>.BasicCalendar()</code></td>
+          <td>For the class of each event, it has two parameters: date (int) and photo (url). These two parameters help locate the date of each event and 
+            display the event image in the day calendar when the grid cell is clicked.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><code>.SlideCalendar()</code></td>
+          <td>For the class of each event, it has two parameters: event (str) and photo (url). These two parameters help build the 
+            slide calendar with the event contents and event images.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><code>.SlideGalleryCalendar()</code></td>
+          <td>For the class of each event, it has two parameters: event (str) and photo (url). These two parameters help build the 
+            slide gallery calendar with the event contents and event images.
+        </td>
+        <tr>
+          <th scope="row">4</th>
+          <td><code>.ImageGrid()</code></td>
+          <td>For the class of each event, it has two parameters: event (str) and photo (url). These two parameters help build the 
+            image grid calendar with the event contents and event images.
+        </td>
+        <tr>
+          <th scope="row">5</th>
+          <td><code>.TodoList()</code></td>
+          <td>Users can directly import this function in script. All user interactions are finished in the webpage.
+        </td>
+        <tr>
+          <th scope="row">6</th>
+          <td><code>.TimeLine()</code></td>
+          <td>For the class of each event, it has three parameters: title (str), content (str) and photo (url). These three parameters help build the 
+            timeline with the dates, event contents and event images.
+        </td>
+        <tr>
+          <th scope="row">7</th>
+          <td><code>.Timesheet()</code></td>
+          <td>For the class of timesheet, it has three parameters: start_year (int), end_year (int) and events (class). 
+            The first two parameters help to plot the time range of the whole timesheet. For every event in events, 
+            it has 5 parameters: start_month (int), start_year (int), end_month (int), end_year (int) and the content (str). The first four parameters 
+            help to draw the event at the right place. The last parameter can tell users the content of the event.
+        </td>
+        <tr>
+          <th scope="row">8</th>
+          <td><code>.Timetable()</code></td>
+          <td>For the class of timesheet, it has three parameters: start_time (int), end_time (int) and events (class). 
+            The first two parameters help to plot the time range of the whole timetable. For every reservation in events, 
+            it has 5 parameters: start_hour (int), start_min (int), end_hour (int), end_min (int) and the content(str). The first four parameters 
+            help to draw the event at the right time. The last parameter can tell users the creator of the reservation.
+        </td>
+        <tr>
+          <th scope="row">9</th>
+          <td><code>.changeTimeZone()</code></td>
+          <td>For the class of timesheet, it has three parameters: start_time (int), end_time (int) and events (class). 
+            The first two parameters help to plot the time range of the whole timetable. For every event in events, 
+            it has 5 parameters: start_hour (int), start_min (int), end_hour (int), end_min (int) and the content (str). The first four parameters 
+            help to draw the event at the right time. The last parameter can tell users the content of the event. 
+            Then the webpage will display the event in five different zones.
+        </td>
+        <tr>
+          <th scope="row">10</th>
+          <td><code>.SearchTable()</code></td>
+          <td>For the class of each event, it has two parameters: date (str), description (str). These two parameters help build the 
+            timetable with the dates and event contents. Then this API function can help us search the events satisfying the input date keywords.
+        </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <p>These functions can be applied as below in Javascript.</p>
+    <p class="txt-border">
+      const cg = new CalendarGenerator();
+      <br>
+      <br> cg.BasicCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 1,
+        photo: "./img/5.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 18,
+        photo: "./img/6.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 20,
+        photo: "./img/7.jpg"
+      }
+    ]);
+    <br>
+    <br> cg.Timesheet({
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;start_year:2012,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;end_year:2023,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          start_month: 9,
+          start_year: 2012,
+          end_month: 6,
+          end_year: 2015,
+          content: "High School",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          start_month: 8,
+          start_year:2012,
+          end_month: 2,
+          end_year: 2018,
+          content: "My Last Relationship",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          start_month: 9,
+          start_year:2015,
+          end_month: 6,
+          end_year: 2019,
+          content: "University",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          start_month: 9,
+          start_year: 2019,
+          end_month: 4,
+          end_year: 2020,
+          content: "First Year of MEng Program",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          start_month: 11,
+          start_year: 2019,
+          end_month: 6,
+          end_year: 2020,
+          content: "Be with My Cat",
+        },
+      ]
+    });
+    <br><br> cg.Timetable({
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;start_time:8,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;end_time:18,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+          {
+            start_hour: 9,
+            start_min: 30,
+            end_hour: 10,
+            end_min: 30,
+            content: "Amy",
+          },
+          {
+            start_hour: 12,
+            start_min: 0,
+            end_hour: 13,
+            end_min: 15,
+            content: "Irene",
+          }
+        ],
+  
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+          {
+            start_hour: 14,
+            start_min: 0,
+            end_hour: 17,
+            end_min: 16,
+            content: "April",
+          }
+  
+        ],
+  
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+          {
+            start_hour: 8,
+            start_min: 20,
+            end_hour: 13,
+            end_min: 0,
+            content: "Jack",
+          }
+  
+        ],
+  
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+          {
+            start_hour: 12,
+            start_min: 20,
+            end_hour: 15,
+            end_min: 0,
+            content: "Bruce",
+          },
+          {
+            start_hour: 15,
+            start_min: 10,
+            end_hour: 18,
+            end_min: 0,
+            content: "Jessica",
+          }
+  
+        ],
+  
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+          {
+            start_hour: 14,
+            start_min: 20,
+            end_hour: 15,
+            end_min: 10,
+            content: "Steve",
+          },
+          {
+            start_hour: 15,
+            start_min: 20,
+            end_hour: 16,
+            end_min: 30,
+            content: "Tony",
+          }
+  
+        ],
+  
+      ]
+    }); 
+    <br>
+    <br> cg.changeTimeZone({
+      <br>&nbsp;&nbsp;&nbsp;&nbsp; start_time:8,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp; end_time:18,
+      <br>&nbsp;&nbsp;&nbsp;&nbsp; events:[
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {
+            start_hour: 9,
+            start_min: 0,
+            end_hour: 10,
+            end_min: 0,
+            content: "Course 1",
+          },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {
+            start_hour: 12,
+            start_min: 0,
+            end_hour: 13,
+            end_min: 0,
+            content: "Course 2",
+          }
+        ],
+    });
+    <br>
+    <br> 	cg.SearchTable({
+      <br>&nbsp;&nbsp;&nbsp;&nbsp; events: [
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          date: "2020/DEC/19",
+          description: "csc309 Individual Due",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          date: "2020/DEC/25",
+          description: "Christmas",
+        },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+          date: "2021/JAN/1",
+          description: "New Year",
+        }
+  
+      ],
+  
+    });
+    <br>
+    <br>cg.SlideCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 1: Try to Slow Down",
+			photo: "./img/1.jpg",
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 2: Rearrange My Hope List",
+			photo: "./img/2.jpg",
+	
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 3: Admire the Moon",
+			photo: "./img/3.jpg",
+	
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 4: Set Myself Free",
+			photo: "./img/4.jpg",
+	
+		},
+  ]);
+  <br>
+  <br>	cg.SlideGalleryCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 1: Try to Slow Down",
+        photo: "./img/1.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 2: Rearrange My Hope List",
+        photo: "./img/2.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 3: Admire the Moon",
+        photo: "./img/3.jpg",
+      },
+    ]);
+  <br>
+  <br>cg.ImageGrid([
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+  event: "Day 1: Try to Slow Down",
+  photo: "./img/1.jpg",
+},
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+  event: "Day 2: Rearrange My Hope List",
+  photo: "./img/2.jpg",
+},
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+  event: "Day 3: Admire the Moon",
+  photo: "./img/3.jpg",
+},
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+  event: "Day 4: Set Myself Free",
+  photo: "./img/4.jpg",
+},
+]);
+<br>
+<br> cg.TodoList();
+<br>
+<br> cg.TimeLine({
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+      title: "2019/Aug/30",
+      content: "First Arrive in Canada",
+      photo: "./img/5.jpg",
+    },
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+      title: "2020/Jan/1",
+      content: "Good Time with Crazy Friends",
+      photo: "./img/8.jpg",
+    },
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+      title: "2020/Sep/1",
+      content: "Go to School",
+      photo: "./img/7.jpg",
+    },
+  ]
+});
+  
+
+  
+
+      
+
+    </p>
+  </div>
+
+</body>
+</html>
+

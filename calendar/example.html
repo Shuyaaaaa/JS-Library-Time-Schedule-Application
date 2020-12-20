@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Schedule Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="demo.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer type="text/javascript" src="script.js"></script>
+    <script defer type="text/javascript" src="example.js"></script>
+  </head>
+
+  <body>
+    <ul class = "nav-ul">
+      <li><a href="./documentation.html">Documentation Link</a></li>
+      <li><a href="https://github.com/csc309-fall-2020/js-library-wangs519">GitHub (Now is a private link)</a></li>
+    </ul>
+
+    <h1>Exampls</h1>
+    <h2>
+    10 examples displayed for the Time-schedule Library
+    </h2>
+    <p>
+      The library is used for recording special events on special timestamps, 
+      like a calendar or a notepad, but in a more visually rich and interactive way. 
+      In this library, you will find many kinds of traditional calendars, 
+      like the monthly calendar, slide calendar, agenda, timeline, timetable, to-do list, 
+      time resource organization, world clock planner and so on. 
+    </p>
+    <h2>The 1st example: Basic Monthly Calendar</h2>
+    <p>This is a basic monthly calendar. The left part day calendar represents the event detail for each day, 
+      and the right part shows the month calendar structure. The default highlighted day is today.
+      <br>You can click the date grid to check its event details. If the clicked date is empty, the day calendar 
+      will only show you the day number. If the clicked date has an event, the day calendar will show you the 
+      corresponding photo for this event.
+      <br>In this example, three events are added in day 1, day 18 and day 20 separately. Therefore, when you click these three 
+      grid cells, you can check its event photos.
+    </p> 
+    <div id="BasicMonthlyCalendar"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="BasicMonthlyCalendar"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg = new CalendarGenerator();
+      <br> cg.BasicCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 1,
+        photo: "./img/5.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 18,
+        photo: "./img/6.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        date: 20,
+        photo: "./img/7.jpg"
+      }
+    ]);
+        
+    </p>
+
+
+    <br>
+    <h2>The 2nd example: Yearly Timesheet</h2>
+    <p>
+      This is a beautiful yearly timesheet. You can check the event details directly, including the start date, end date and the event content. 
+      If you move your mouse over an event, the event will be highlighted. For different events, 
+      their colors will be automatically changed. In this example, five events are displayed.
+    </p>
+    <div id="YearlyTimesheet"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="YearlyTimesheet"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg = new CalendarGenerator();
+      <br> cg.Timesheet({
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;start_year:2012,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;end_year:2023,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            start_month: 9,
+            start_year: 2012,
+            end_month: 6,
+            end_year: 2015,
+            content: "High School",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            start_month: 8,
+            start_year:2012,
+            end_month: 2,
+            end_year: 2018,
+            content: "My Last Relationship",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            start_month: 9,
+            start_year:2015,
+            end_month: 6,
+            end_year: 2019,
+            content: "University",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            start_month: 9,
+            start_year: 2019,
+            end_month: 4,
+            end_year: 2020,
+            content: "First Year of MEng Program",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            start_month: 11,
+            start_year: 2019,
+            end_month: 6,
+            end_year: 2020,
+            content: "Be with My Cat",
+          },
+        ]
+      });
+        
+    </p>
+
+    <br>
+    <h2>The 3rd example: Time Resource Organization</h2>
+    <p>This is a time resource organization. For keeping social distance, 
+      many public facilities need to be reserved in advance to avoid crowds. Therefore, this time resource organization
+      is very useful. For managers and customers, both of them can check the availability conveniently. 
+      For different resources, their colors will be automatically changed. 
+      If you move your mouse over a reservation (for example, Amy booked resource 1 from 9:30-10:30), the reservation will be highlighted. 
+      In this example, five resources are displayed. 
+    </p>
+    <div id="DailyTimetable"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="DailyTimetable"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg = new CalendarGenerator();
+      <br> cg.Timetable({
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;start_time:8,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;end_time:18,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+            {
+              start_hour: 9,
+              start_min: 30,
+              end_hour: 10,
+              end_min: 30,
+              content: "Amy",
+            },
+            {
+              start_hour: 12,
+              start_min: 0,
+              end_hour: 13,
+              end_min: 15,
+              content: "Irene",
+            }
+          ],
+    
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+            {
+              start_hour: 14,
+              start_min: 0,
+              end_hour: 17,
+              end_min: 16,
+              content: "April",
+            }
+    
+          ],
+    
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+            {
+              start_hour: 8,
+              start_min: 20,
+              end_hour: 13,
+              end_min: 0,
+              content: "Jack",
+            }
+    
+          ],
+    
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+            {
+              start_hour: 12,
+              start_min: 20,
+              end_hour: 15,
+              end_min: 0,
+              content: "Bruce",
+            },
+            {
+              start_hour: 15,
+              start_min: 10,
+              end_hour: 18,
+              end_min: 0,
+              content: "Jessica",
+            }
+    
+          ],
+    
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[
+            {
+              start_hour: 14,
+              start_min: 20,
+              end_hour: 15,
+              end_min: 10,
+              content: "Steve",
+            },
+            {
+              start_hour: 15,
+              start_min: 20,
+              end_hour: 16,
+              end_min: 30,
+              content: "Tony",
+            }
+    
+          ],
+    
+        ]
+      }); 
+
+    </p>
+
+    <br>
+    <h2>The 4th example: World Clock Planner</h2>
+    <p>This world clock planner displays the same events in different time zones. The chosen five cities are Toronto, 
+      Vancouver, Edmonton, New York and London. The same event will be represented with same color. If you move your mouse over an event, 
+      this event will be highlighted. In this example, 
+      we have two events. For course 2 (the purple one), students in Toronto 
+      will take it from 12:00 to 13:00, while students in London will take it from 17:00 to 18:00.
+    </p>
+    <div id="DailyTimeZone"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="DailyTimeZone"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg.changeTimeZone({
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; start_time:8,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; end_time:18,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; events:[
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {
+              start_hour: 9,
+              start_min: 0,
+              end_hour: 10,
+              end_min: 0,
+              content: "Course 1",
+            },
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {
+              start_hour: 12,
+              start_min: 0,
+              end_hour: 13,
+              end_min: 0,
+              content: "Course 2",
+            }
+          ],
+      });
+    </p>
+
+    <br>
+    <h2>The 5th example: Event Search Table</h2>
+    <p>
+      In this event search table, you need to enter your customized events firstly. 
+      Then, you can input any date keyword in the search bar. All events that contain the date keyword will be shown dynamically.
+      In this example, if we input 'jan' in the search bar, the 'New Year' event will be displayed.
+
+    </p>
+    <div id="EventSearchTable"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="EventSearchTable"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> 	cg.SearchTable({
+        <br>&nbsp;&nbsp;&nbsp;&nbsp; events: [
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            date: "2020/DEC/19",
+            description: "csc309 Individual Due",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            date: "2020/DEC/25",
+            description: "Christmas",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            date: "2021/JAN/1",
+            description: "New Year",
+          }
+    
+        ],
+    
+      });
+    </p>
+
+    <br>
+    <h2>The 6th example: Basic Slide Calendar</h2>
+    <p>
+      The five examples before are traditional calendars. Since pictures have more direct and powerful impact to remind you of something, 
+      I create this basic slide calendar. It is a calendar consisting of photos, with the event content written on the photo. You can 
+      browse different events by clicking the "previous" and "next" buttons, or you can just click the dots below to locate the event you want.
+      In this example, I add four events to the slide calendar.
+
+    </p>
+    <div id="BasicSlide"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="BasicSlide"&gt;&lt;/div&gt;
+      <br> //JS
+      <br>cg.SlideCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 1: Try to Slow Down",
+			photo: "./img/1.jpg",
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 2: Rearrange My Hope List",
+			photo: "./img/2.jpg",
+	
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 3: Admire the Moon",
+			photo: "./img/3.jpg",
+	
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 4: Set Myself Free",
+			photo: "./img/4.jpg",
+	
+		},
+	]);
+    </p>
+
+    <br>
+    <h2>The 7th example: Slide Gallery Calendar</h2>
+    <p>
+      This example make an improvement on the basic slide gallery calendar. In this slide gallery calendar, you can view all event
+      images' thumbnails. So you can locate the event you want more precisely and more quickly.
+    </p>
+    <div id="SlideGallery"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="SlideGallery"&gt;&lt;/div&gt;
+      <br> //JS
+      <br>	cg.SlideGalleryCalendar([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 1: Try to Slow Down",
+        photo: "./img/1.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 2: Rearrange My Hope List",
+        photo: "./img/2.jpg",
+      },
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+        event: "Day 3: Admire the Moon",
+        photo: "./img/3.jpg",
+      },
+    ]);
+    </p>
+
+    <br>
+    <h2>The 8th example: Image Grid Calendar</h2>
+    <p>
+      This image grid calendar will show you all event images, but in  different depolyment methods. If you press the button "1", 
+      there is only one column of event images; if you click '2' or '4', there are two or four columns separately. 
+      If you want to check the event content, you just need to move your mouse over the event image, the text will be displayed with 
+      an overlay effect.
+    </p>
+    <div id="ImageGrid"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="ImageGrid"&gt;&lt;/div&gt;
+      <br> //JS
+      <br>cg.ImageGrid([
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 1: Try to Slow Down",
+			photo: "./img/1.jpg",
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 2: Rearrange My Hope List",
+			photo: "./img/2.jpg",
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 3: Admire the Moon",
+			photo: "./img/3.jpg",
+		},
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+			event: "Day 4: Set Myself Free",
+			photo: "./img/4.jpg",
+		},
+  ]);
+  </p>
+
+    <br>
+    <h2>The 9th example: To-do List</h2>
+    <p>This to-do list can add, delete and cross out the event. If you want to add an event, you need to enter the event 
+      in the input box. If you want to delete an event, you can click "x" button at the end of the event line. You can 
+      cross out an event by clicking anywhere of the event line (except the delete button). If an event is 
+      crossed out, its event line will change to a darker color. Click one more time will help you 
+      return the event to its original state.
+    </p>
+    <div id="TodoList"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="TodoList"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg.TodoList();
+    </p>
+
+    <br>
+    <h2>The 10th example: Timeline with Shaking Effect</h2>
+    <p>
+      This timeline can help you with get acknowledge of your schedule directly. Firstly, you need to enter the customized events. 
+      Then, on the timeline, if you move you mouse over an event image, the image will shake itself to attract your attention.
+    </p>
+    <div id="TimeLine"></div>
+    <p  class = "txt-border">
+      // HTML
+      <br> &lt;div id="TimeLine"&gt;&lt;/div&gt;
+      <br> //JS
+      <br> cg.TimeLine({
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;events:[
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            title: "2019/Aug/30",
+            content: "First Arrive in Canada",
+            photo: "./img/5.jpg",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            title: "2020/Jan/1",
+            content: "Good Time with Crazy Friends",
+            photo: "./img/8.jpg",
+          },
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+            title: "2020/Sep/1",
+            content: "Go to School",
+            photo: "./img/7.jpg",
+          },
+        ]
+      });
+      </p>
+
+
+  </body>
+</html>

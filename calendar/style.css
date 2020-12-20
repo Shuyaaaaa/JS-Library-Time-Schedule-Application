@@ -1,0 +1,1041 @@
+* {
+  /* margin: 0;*/
+  box-sizing: border-box;
+  font-family: "Quicksand";
+  /* I use Quicksand API here for a nicer look */
+}
+
+body {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+/*************** the basic month calendar *****************/
+
+.cal-container {
+  border: 1px solid #666;
+  color: #555;
+  user-select: none; 
+  max-width: 650px;
+  margin: 0 auto;
+  /* change the width here */
+}
+
+.cal-day,
+.cal-month {
+  min-height: 265px;
+}
+
+.cal-day {
+  display: inline-block;
+  vertical-align: top;
+  border-right: 1px solid #666;
+}
+
+.cal-day-name {
+  border-bottom: 1px solid #666;
+  font-size: 20px;
+  padding: 10px 0px;
+  width: 250px;
+  text-align: center;
+}
+
+.cal-day-image {
+  width: 250px;
+}
+
+.cal-day-number {
+  padding: 45px 0px 20px 0;
+  font-size: 100px;
+  width: 250px;
+  text-align: center;
+}
+
+.cal-month {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+}
+
+.cal-month-header {
+  font-size: 20px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cal-month-prev,
+.cal-month-next,
+.cal-month-day {
+  cursor: pointer;
+}
+
+.cal-month-name {
+
+}
+
+.cal-month-body {
+  width: 100%;
+}
+
+.cal-week-day,
+.cal-month-day,
+.cal-placeholder-day {
+  display: inline-block;
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 6px 0;
+  box-sizing: border-box;
+}
+
+.cal-week-day {
+  font-weight: bold;
+}
+
+.cal-month-day.active {
+  color: #fff;
+  background: #555;
+  font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  .cal-day,
+  .cal-day-name,
+  .cal-day-number,
+  .cal-month {
+    width: 100%;
+  }
+
+  .cal-day {
+    border-bottom: 1px solid #666;
+  }
+}
+
+.cal-container {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  border-radius: 4px;
+  border: 3px solid #666;
+  box-shadow: 0 20px 7px -17px rgba(0, 0, 0, .4);
+}
+
+.cal-day {
+  border-right: 3px solid #666;
+}
+
+.cal-day-name {
+  background: #f54c4c;
+  color: white;
+}
+
+.cal-week-day {
+  color: #f54c4c;
+  font-weight: bold;
+}
+
+.cal-month-day.active {
+  background: #f54c4c;
+  color: white;
+}
+
+.cal-day-number {
+  color: #444;
+  font-family: impact;
+  font-size: 120px;
+  padding: 30px 0px 20px 0;
+}
+
+
+
+
+/**************************** Basic Slide Calendar *************************/
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 650px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 28px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+/******************* Slideshow Gallery ********************/
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.gallery-container {
+  max-width: 650px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.gallery-mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.gallery-prev,
+.gallery-next {
+  cursor: pointer;
+  position: absolute;
+  top: 28%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.gallery-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.gallery-prev:hover,
+.gallery-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.gallery-numbertext {
+  color: #f2f2f2;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.gallery-caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.gallery-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.gallery-column {
+  float: left;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/*********************** image grid **********************/
+.grid-header {
+  text-align: center;
+  padding: 32px;
+}
+
+.grid-row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  /* padding: 0 50px; */
+  padding-left: 18%;
+  padding-right: 18%;
+}
+
+/* Create two equal columns that sits next to each other */
+.grid-column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.grid-column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.grid-btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.grid-btn:hover {
+  background-color: #ddd;
+}
+
+
+/************************* to do list *********************************/
+/* Remove margins and padding from the list */
+.todo-ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+.todo-ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+.todo-ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+.todo-ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+.todo-ul li.checked {
+  background: rgb(172, 172, 172);
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+.todo-ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.todo-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.todo-close:hover {
+  background-color: #e3c887;
+  color: white;
+}
+
+/* Style the header */
+.todo-header {
+  background-color: #e3c887;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.todo-header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.todo-addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.todo-addBtn:hover {
+  background-color: #bbb;
+}
+
+/**************************************** time line **************************************/
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.timeline-content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/************************** timesheet *************************************/
+.timesheet {
+  width: 720px;
+  height: 292px;
+  margin: 0 auto;
+}
+.timesheet {
+  border-top: 1px solid rgba(250, 250, 250, 0.5);
+  background-color: #333;
+  position: relative;
+}
+.timesheet.color-scheme-default .bubble-default {
+  background-color: RGBA(252, 70, 74, 1);
+}
+.timesheet.color-scheme-default .bubble-lorem {
+  background-color: RGBA(154, 202, 39, 1);
+}
+.timesheet.color-scheme-default .bubble-ipsum {
+  background-color: RGBA(60, 182, 227, 1);
+}
+.timesheet.color-scheme-default .bubble-dolor {
+  background-color: RGBA(244, 207, 48, 1);
+}
+.timesheet.color-scheme-default .bubble-sit {
+  background-color: RGBA(169, 105, 202, 1);
+}
+.timesheet.color-scheme-alternative .bubble-default {
+  background-color: #f3552e;
+}
+.timesheet.color-scheme-alternative .bubble-lorem {
+  background-color: #88c33a;
+}
+.timesheet.color-scheme-alternative .bubble-ipsum {
+  background-color: #436ae0;
+}
+.timesheet.color-scheme-alternative .bubble-dolor {
+  background-color: #f4d234;
+}
+.timesheet.color-scheme-alternative .bubble-sit {
+  background-color: #707d86;
+}
+.timesheet .scale {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: left;
+}
+.timesheet .scale section {
+  float: left;
+  width: 59px;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.8);
+  font-family: "Signika Negative";
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: lighter;
+  border-left: 1px dashed rgba(250, 250, 250, 0.2);
+  height: 100%;
+}
+.timesheet .data {
+  margin: 28px 0 0 0;
+  padding: 0;
+  text-align: left;
+  list-style-type: none;
+  color: rgba(250, 250, 250, 0.8);
+  font-family: "Signika Negative";
+  font-size: 13px;
+  overflow: hidden;
+}
+.timesheet .data li {
+  margin: 0 0 3px 0;
+  line-height: 22px;
+  height: 21px;
+  display: block;
+  clear: both;
+  position: relative;
+  white-space: nowrap;
+}
+.timesheet .data li:hover .bubble {
+  opacity: 1;
+}
+.timesheet .data li .date {
+  color: #b5b5b5;
+  font-size: 14px;
+}
+.timesheet .data li .label {
+  font-weight: lighter;
+  font-size: 14px;
+  padding-left: 5px;
+  line-height: 21px;
+  color: #979796;
+  white-space: nowrap;
+}
+.timesheet .data li .bubble {
+  width: 24px;
+  height: 7px;
+  display: block;
+  float: left;
+  position: relative;
+  top: 7px;
+  border-radius: 4px;
+  margin: 0 10px 0 0;
+  opacity: 0.7;
+}
+#timesheet-alternative {
+  background-color: RGBA(247, 247, 247, 1);
+  border-radius: 5px;
+}
+#timesheet-alternative section {
+  color: RGBA(63, 68, 72, 1);
+  border-left: 1px dashed RGBA(63, 68, 72, 0.2);
+}
+#timesheet-alternative section:first-child {
+  border-left: 1px dashed transparent;
+}
+#timesheet-alternative .date {
+  display: none;
+}
+#timesheet-alternative .bubble {
+  margin-right: 7px;
+}
+#timesheet-alternative .label {
+  padding-left: 0px;
+  color: RGBA(48, 48, 48, 1);
+}
+
+
+/******************************************** timetable ***********************************************************/
+
+.timetable {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.timetable * {
+    box-sizing: inherit;
+    
+}
+.timetable li,
+.timetable ul {
+    list-style-type: none;
+    margin: 0;
+}
+.timetable li,
+.timetable ul {
+    padding: 0;
+}
+.timetable > aside {
+    flex: none;
+    max-width: 30%;
+    padding: 0 !important;
+    margin-top: 46px;
+    border-right: 5px solid transparent;
+    position: relative;
+}
+.timetable > aside li {
+    padding: 0 15px;
+    background-color: #efefef;
+    line-height: 46px;
+}
+.timetable > aside li:not(:last-of-type) {
+    border-bottom: 1px solid #fff;
+}
+.timetable > aside .row-heading {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.timetable > aside:before {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 46px;
+    position: relative;
+    margin-top: -46px;
+    top: 0;
+}
+.timetable aside li,
+.timetable time li {
+    height: 46px;
+}
+.timetable > section {
+    flex: 3 0 auto;
+    width: 0;
+    padding: 0 !important;
+}
+.timetable > section time {
+    display: block;
+    width: 100%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.timetable > section > header {
+    position: relative;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    transform-style: preserve-3d;
+}
+.timetable > section > header ul {
+    display: flex;
+    height: 46px;
+    align-items: center;
+}
+.timetable > section > header li {
+    flex: none;
+    display: block;
+    position: relative;
+    width: 96px;
+}
+.timetable > section > header li .time-label {
+    display: block;
+    position: absolute;
+    left: 0;
+}
+.timetable > section > header li:not(:first-of-type) .time-label {
+    transform: translateX(-50%);
+}
+.timetable > section > header li:last-of-type {
+    width: 0;
+}
+.timetable > section > header li:last-of-type .time-label {
+    transform: translateX(-100%);
+}
+.timetable ul.room-timeline {
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.timetable ul.room-timeline li {
+    position: relative;
+    background-color: #f4f4f4;
+    height: 46px;
+}
+.timetable ul.room-timeline li:nth-of-type(odd) {
+    background-color: #fdfdfd;
+}
+.timetable ul.room-timeline li:first-of-type {
+    border-top: 1px solid #e5e5e5;
+}
+.timetable ul.room-timeline li:last-of-type {
+    border-bottom: 1px solid #e5e5e5;
+}
+.timetable ul.room-timeline li:not(:last-of-type) {
+    border-bottom: none;
+}
+.timetable ul.room-timeline li:first-child .time-entry {
+    height: 44px;
+}
+.timetable ul.room-timeline li:after,
+.timetable ul.room-timeline li:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.timetable ul.room-timeline li:before {
+    background-image: linear-gradient(90deg, #e5e5e5 1px, transparent 0);
+    background-size: 24px auto;
+}
+.timetable ul.room-timeline li:after {
+    background-image: linear-gradient(90deg, #e5e5e5, #e5e5e5 1px, #f4f4f4 0, #f4f4f4 2px, #e5e5e5 0, #e5e5e5 3px, transparent 0, transparent);
+    background-size: 96px auto;
+    background-position: -2px 0;
+}
+.timetable .time-entry {
+    background-color: #e7695e;
+    transition: background-color 0.2s;
+    height: 45px;
+    display: block;
+    position: absolute;
+    z-index: 2;
+    padding: 0 10px;
+    white-space: normal;
+    overflow: hidden;
+    color: #fff;
+    /* border: 1px solid #e32c1b; */
+    transform-style: preserve-3d;
+}
+.timetable .time-entry small {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+.timetable .time-entry:hover {
+    background-color: #e74030;
+}
+
+.row-heading {
+    font-weight: 500;
+    font-size: 1em;
+    /* set the size of text */
+}
+.timetable .time-label {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+.timetable .time-entry.purple {
+    background-color: #c49fe7;
+    /* border: 1px solid #6a16b8; */
+}
+.timetable .time-entry.purple:hover {
+    background-color: #ae67f0;
+}
+.timetable .time-entry.green {
+  background-color: #6dcc84;
+}
+.timetable .time-entry.green:hover {
+  background-color: #1ec43a;
+}
+.timetable .time-entry.yellow {
+  background-color: #dfdd89;
+}
+.timetable .time-entry.yellow:hover {
+  background-color: #d6d330;
+}
+.timetable .time-entry.blue {
+  background-color: #8edff3;
+}
+.timetable .time-entry.blue:hover {
+  background-color: #2f7ac0;
+}
+
+/****************************************** Search Table *********************************/
+#myInput {
+  background-position: 10px 10px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd; 
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+
+/****************** the navigation bar ***********************************************/
+.nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+  
+.nav-ul li {
+float: left;
+}
+
+.nav-ul li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+.nav-ul li a:hover {
+background-color: #111;
+}
+
+.txt-border {
+padding: 16px;
+border: 1px solid #877f6c;
+border-radius: 5px;
+background-color: #b4a582;
+color: white;
+}
+
+/*********************** add an overlay for grid gallery *******************/
+.grid-container {
+  position: relative;
+  width: 100%;
+}
+
+.grid-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #e3c887;
+}
+
+.grid-container:hover .overlay {
+  opacity: 1;
+}
+
+.grid-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+/********************** shake image in timeline ********************************/
+.shake-img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
