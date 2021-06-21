@@ -1,0 +1,25 @@
+{
+  "name": "js-library-wangs519",
+  "version": "1.0.0",
+  "description": "The library now can show day calendar and month calendar. Users can customize the date they want to show in day or month calendar. Users can also choose the styles of the calendar, like changing the calendar's shape and background color.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-fall-2020/js-library-wangs519.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-fall-2020/js-library-wangs519/issues"
+  },
+  "homepage": "https://github.com/csc309-fall-2020/js-library-wangs519#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "server": "^1.0.31"
+  }
+}
